@@ -1,0 +1,17 @@
+<div class="wrapper">
+  <div class="list">
+    <ng-container *ngFor="let student of students">
+      <p>
+        <a (click)="selectStudent(student)">
+          {{student.fullName}}
+        </a>
+        <span>
+          {{student.group}}
+        </span>
+      </p>
+    </ng-container>
+  </div>
+  <div class="details">
+
+  </div>
+</div>

@@ -1,1 +1,32 @@
-<p>student-details works!</p>
+<form [formGroup]="studentForm" *ngIf="student" (ngSubmit)="onSave()">
+    <div class="form-group">
+        <label>Повне ім'я</label>
+        <input class="form-control" name="name" formControlName="fullName" />
+          
+        <div class="alert alert-danger"
+            *ngIf="fullName.invalid && fullName.touched">
+            Не вказано ім'я
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Группа</label>
+        <select formControlName="group">
+            <option *ngFor="let group of groups" [ngValue]="group">{{group}}</option>
+         </select>
+         <div class="alert alert-danger"
+         *ngIf="group.invalid && group.touched">
+         Не вказано ім'я
+     </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-default" [disabled]="studentForm.invalid">
+            Зберегти
+        </button>
+    </div>
+</form>
+
+<ng-container *ngIf="student">
+    <p *ngFor="let subj of student.subjects">
+        {{subj.title}} - {{subj.mark}}
+    </p>
+</ng-container>

@@ -19,6 +19,5 @@ export class AppComponent {
 
   selectStudent(student): void {
     this.currentStudent = student;
-    console.log(this.currentStudent);
   }
 }
